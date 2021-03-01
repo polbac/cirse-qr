@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
+import Prismic from 'prismic-javascript'
+
 
 function App() {
+  const [downladFile, setDownloadFile] = useState(null)
+
+  useEffect(() => {
+    console.log('oh')
+    Prismic.api("https://cirse-qr.cdn.prismic.io/api/v2")
+      .then(res => {
+        res.query('')
+          .then(r => {
+            document.location = r.results[0].data.download.url
+          })
+      })
+
+    }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <p>cargando...</p>
   );
 }
 
