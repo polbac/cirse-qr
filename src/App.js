@@ -6,11 +6,11 @@ function App() {
   const [downladFile, setDownloadFile] = useState(null)
 
   useEffect(() => {
-    console.log('oh')
-    Prismic.api("https://cirse-qr.cdn.prismic.io/api/v2")
+    Prismic.api("https://qr-cirse.cdn.prismic.io/api/v2")
       .then(res => {
         res.query('')
           .then(r => {
+            console.log('r',r)
             document.location = r.results[0].data.download.url
           })
       })
