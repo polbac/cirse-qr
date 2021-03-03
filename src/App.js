@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Prismic from 'prismic-javascript'
 
 
 function App() {
-  const [downladFile, setDownloadFile] = useState(null)
 
   useEffect(() => {
     Prismic.api("https://qr-cirse.cdn.prismic.io/api/v2")
